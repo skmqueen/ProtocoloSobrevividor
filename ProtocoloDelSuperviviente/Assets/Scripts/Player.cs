@@ -81,7 +81,6 @@ public class Player : MonoBehaviour
 
   private void ControlarAnimaciones()
 {
-    // Calcula la velocidad basada en el input, NO en agent.velocity
     float h = Input.GetAxis("Horizontal");
     float v = Input.GetAxis("Vertical");
     Vector3 direccionInput = new Vector3(h, 0, v);
@@ -94,9 +93,7 @@ public class Player : MonoBehaviour
     animator.SetBool("IsRunning", corriendo);
     animator.SetBool("IsShooting", disparando);
     animator.SetBool("IsDead", estaMuerto);
-    
-    // DEBUG - borra después
-    Debug.Log($"Speed enviado al Animator: {velocidadActual}");
+
 }
 
     private void OnTriggerEnter(Collider other)
