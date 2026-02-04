@@ -3,18 +3,23 @@ using System.Collections.Generic;
 
 public class ProyectilPool : MonoBehaviour
 {
-    [Header("Configuración Pool")]
+  
     public GameObject prefabProyectil;
     public int cantidadInicial = 15;
     
     private Stack<Proyectil> pool = new Stack<Proyectil>();
 
-    private void Start()
+    private void Awake()
     {
         for (int i = 0; i < cantidadInicial; i++)
         {
             CrearNuevoProyectil();
         }
+    }
+
+    private void Start()
+    {
+        
     }
 
     private void CrearNuevoProyectil()
@@ -44,8 +49,4 @@ public class ProyectilPool : MonoBehaviour
         pool.Push(proyectil);
     }
 
-    public int ProyectilesDisponibles()
-    {
-        return pool.Count;
-    }
 }

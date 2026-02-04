@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - ControladorVidas
+  - Enemy
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - mascaraVision
   - Water
   - UI
   - 

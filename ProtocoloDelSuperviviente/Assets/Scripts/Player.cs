@@ -12,10 +12,6 @@ public class Player : MonoBehaviour
     public float velocidadCorrer = 6f;
     public float sensibilidadRotacion = 200f;
 
-    public int vidasMaximas = 5;
-    private int vidasActuales;
-    public ControladorVidas controladorVidas;
-
     private NavMeshAgent agent;
     private Animator animator;
 
@@ -30,13 +26,6 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        vidasActuales = vidasMaximas;
-
-        if (controladorVidas == null)
-            controladorVidas = FindFirstObjectByType<ControladorVidas>();
-
-        if (controladorVidas != null)
-            controladorVidas.ActualizarVidas(vidasActuales, vidasMaximas);
     }
 
     void Update()
@@ -98,26 +87,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ProyectilEnemigo"))
+        if (other.CompareTag("BalaEnemiga"))
         {
-            RecibirDanio(1);
             Destroy(other.gameObject);
         }
     }
 
-    public void RecibirDanio(int cantidad)
-    {
-        if (!estaMuerto)
-        {
-            vidasActuales -= cantidad;
-
-            if (controladorVidas != null)
-                controladorVidas.ActualizarVidas(vidasActuales, vidasMaximas);
-
-            if (vidasActuales <= 0)
-                Morir();
-        }
-    }
 
     private void Morir()
     {

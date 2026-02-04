@@ -3,19 +3,18 @@ using System.Collections;
 
 public class ArmasController : MonoBehaviour
 {
-    [Header("Disparo")]
+
     public Transform pitorro;
     public float disparoVelocidad = 0.1f;
-    public GameObject flash;
     
-    [Header("Munición")]
+
     public int maxBalas = 8;
     private int balasActuales;
     public float tiempoRecarga = 2f;
     private bool recargando = false;
     private float ultimoDisparo = Mathf.NegativeInfinity;
     
-    [Header("Referencias")]
+
     public ProyectilPool poolProyectiles;
     private Animator animator;
 
@@ -39,8 +38,7 @@ public class ArmasController : MonoBehaviour
         {
             animator.SetBool("IsShooting", disparando);
         }
-        
-        // Cambiado a GetButtonDown para un solo disparo por click
+
         if (Input.GetButtonDown("Fire1"))
         {
             IntentoDisparo();
@@ -56,11 +54,7 @@ public class ArmasController : MonoBehaviour
     {
         if (recargando)
         {
-            // No hacer nada
-        }
-        else if (balasActuales <= 0)
-        {
-            // No hacer nada
+ 
         }
         else
         {
@@ -70,21 +64,15 @@ public class ArmasController : MonoBehaviour
 
     private void Disparo()
     {
-        if (flash != null)
-        {
-            GameObject flashObj = Instantiate(flash, pitorro.position, pitorro.rotation, pitorro);
-            Destroy(flashObj, 0.1f);
-        }
-
         if (poolProyectiles != null)
         {
             Proyectil proyectil = poolProyectiles.Pop();
             proyectil.transform.position = pitorro.position;
-            proyectil.Inicializar(poolProyectiles, pitorro.forward);
+            proyectil.VamosAlla(poolProyectiles, pitorro.forward);
         }
 
         balasActuales--;
-        ultimoDisparo = Time.time;
+        ultimoDisparo = Time.deltaTime;
     }
 
     IEnumerator Recarga()

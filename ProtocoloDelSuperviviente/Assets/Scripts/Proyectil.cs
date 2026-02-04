@@ -16,10 +16,10 @@ public class Proyectil : MonoBehaviour
         rb = GetComponent<Rigidbody>();
     }
 
-    public void Inicializar(ProyectilPool poolRef, Vector3 direccion)
+    public void VamosAlla(ProyectilPool poolRef, Vector3 direccion)
     {
         pool = poolRef;
-        tiempoSpawn = Time.time;
+        tiempoSpawn = Time.deltaTime;
         
         rb.linearVelocity = direccion.normalized * velocidad;
         transform.forward = direccion;
@@ -27,7 +27,7 @@ public class Proyectil : MonoBehaviour
 
     private void Update()
     {
-        if (Time.time - tiempoSpawn >= tiempoVida)
+        if (Time.deltaTime - tiempoSpawn >= tiempoVida)
         {
             DevolverAPool();
         }
