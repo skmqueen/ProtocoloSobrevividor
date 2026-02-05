@@ -6,16 +6,14 @@ public class ArmasController : MonoBehaviour
 
     public Transform pitorro;
     public float disparoVelocidad = 0.1f;
-    
 
+    public GameObject proyectil;
     public int maxBalas = 8;
     private int balasActuales;
     public float tiempoRecarga = 2f;
     private bool recargando = false;
     private float ultimoDisparo = Mathf.NegativeInfinity;
-    
-
-    public ProyectilPool poolProyectiles;
+    private float tiempoPool = 2f;
     private Animator animator;
 
     private void Awake()
@@ -26,8 +24,6 @@ public class ArmasController : MonoBehaviour
 
     private void Start()
     {
-        if (poolProyectiles == null)
-            poolProyectiles = FindFirstObjectByType<ProyectilPool>();
     }
 
     private void Update()
@@ -64,13 +60,9 @@ public class ArmasController : MonoBehaviour
 
     private void Disparo()
     {
-        if (poolProyectiles != null)
-        {
-            Proyectil proyectil = poolProyectiles.Pop();
-            proyectil.transform.position = pitorro.position;
-            proyectil.VamosAlla(poolProyectiles, pitorro.forward);
-        }
 
+        ProyectilPool.Instance.PopObj();
+        proyectil.transform.position = pitorro.position;
         balasActuales--;
         ultimoDisparo = Time.deltaTime;
     }

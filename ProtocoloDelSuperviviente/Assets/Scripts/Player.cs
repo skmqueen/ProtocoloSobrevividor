@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float velocidadCaminar = 3.5f;
     public float velocidadCorrer = 6f;
     public float sensibilidadRotacion = 200f;
+    public float vida;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -59,13 +60,7 @@ public class Player : MonoBehaviour
     private void Mirar()
     {
         float rotX = Input.GetAxis("Mouse X") * sensibilidadRotacion * Time.deltaTime;
-        float rotY = Input.GetAxis("Mouse Y") * sensibilidadRotacion * Time.deltaTime;
-
-        anguloVertCamara += rotY;
-        anguloVertCamara = Mathf.Clamp(anguloVertCamara, -70f, 70f);
-
         transform.Rotate(Vector3.up * rotX);
-        cameraPrincipal.transform.localRotation = Quaternion.Euler(-anguloVertCamara, 0f, 0f);
     }
 
   private void ControlarAnimaciones()

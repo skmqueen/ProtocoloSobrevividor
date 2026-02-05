@@ -3,14 +3,19 @@ using System.Collections.Generic;
 
 public class ProyectilPool : MonoBehaviour
 {
-  
+    public static ProyectilPool Instance;
     public GameObject prefabProyectil;
     public int cantidadInicial = 15;
     
-    private Stack<Proyectil> pool = new Stack<Proyectil>();
+    private Stack<GameObject> pool = new Stack<GameObject>();
 
     private void Awake()
     {
+        if (Instance == null)
+            Instance = this;
+        else
+            Destroy(gameObject);
+
         for (int i = 0; i < cantidadInicial; i++)
         {
             CrearNuevoProyectil();
@@ -24,29 +29,33 @@ public class ProyectilPool : MonoBehaviour
 
     private void CrearNuevoProyectil()
     {
-        GameObject obj = Instantiate(prefabProyectil, transform);
-        Proyectil proyectil = obj.GetComponent<Proyectil>();
-        obj.SetActive(false);
+        GameObject proyectil = Instantiate(prefabProyectil, transform);
+        proyectil.SetActive(false);
         pool.Push(proyectil);
     }
 
-    public Proyectil Pop()
+    public GameObject PopObj()
     {
+        GameObject retornoProyectil = null;
 
-        if (pool.Count == 0)
+        if (pool.Count != 0)
         {
-            CrearNuevoProyectil();
+            retornoProyectil.SetActive(true);
+            retornoProyectil = pool.Pop();
+            retornoProyectil.transform.position = Vector3.zero;
+            retornoProyectil.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
         }
-
-        Proyectil proyectil = pool.Pop();
-        proyectil.gameObject.SetActive(true);
-        return proyectil;
+        else
+        {
+            retornoProyectil.SetActive(false);
+        }
+        return retornoProyectil;
     }
 
-    public void Push(Proyectil proyectil)
+    public void PushObj(GameObject obj)
     {
-        proyectil.gameObject.SetActive(false);
-        pool.Push(proyectil);
+        obj.SetActive(false);
+        pool.Push(obj);
     }
 
 }

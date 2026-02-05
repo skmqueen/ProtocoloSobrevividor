@@ -40,7 +40,7 @@ public class PoolBalas : MonoBehaviour
 
     public BalaEnemiga Pop()
     {
-         if (pool.Count == 0)
+        if (pool.Count == 0)
         {
             CrearBala();
         }

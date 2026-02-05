@@ -9162,13 +9162,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 264500802}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.8433915, z: 0, w: 0.53729963}
-  m_LocalPosition: {x: 0.539, y: -0.11, z: -0.215}
+  m_LocalRotation: {x: -0.042156, y: 0.8407916, z: 0.06617167, w: 0.5356433}
+  m_LocalPosition: {x: 0.539, y: -0.007, z: -0.215}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 424522337}
-  m_LocalEulerAnglesHint: {x: 0, y: 115, z: 0}
+  m_LocalEulerAnglesHint: {x: -9, y: 115, z: 0}
 --- !u!4 &264685300 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1454482104356440768, guid: 38be789410d69ef40a29459dfa506f11, type: 3}
@@ -42641,7 +42641,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::ArmasController
   pitorro: {fileID: 264500803}
   disparoVelocidad: 0.1
-  proyectil: {fileID: 6511047287820163028, guid: c9d69e311d214d34fa59cb9c4e7a9c28, type: 3}
+  proyectil: {fileID: 0}
   maxBalas: 8
   tiempoRecarga: 2
 --- !u!4 &1293451500

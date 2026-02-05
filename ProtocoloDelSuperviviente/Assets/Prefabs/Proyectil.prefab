@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7480757514362176392}
   - component: {fileID: 6318247613918605047}
   - component: {fileID: 8143267744224393197}
-  - component: {fileID: 5940950448019397957}
+  - component: {fileID: 7705569959865385712}
   m_Layer: 0
   m_Name: Proyectil
   m_TagString: Untagged
@@ -142,7 +142,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5940950448019397957
+--- !u!114 &7705569959865385712
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -151,8 +151,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6511047287820163028}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ca52c085248dcc4ba96a0d1f30a708d, type: 3}
+  m_Script: {fileID: 11500000, guid: b1f2db088bf237049830c982553b51df, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Proyectil
-  velocidad: 20
-  danio: 1
+  m_EditorClassIdentifier: Assembly-CSharp::ProyectilPop
+  tiempoBala: 2
+  tiempoTranscurrido: 0
+  proyectil: {fileID: 6511047287820163028}
