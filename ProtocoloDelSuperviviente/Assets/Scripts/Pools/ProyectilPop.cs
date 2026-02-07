@@ -2,18 +2,41 @@ using UnityEngine;
 
 public class ProyectilPop : MonoBehaviour
 {
-    public float tiempoBala = 2f;
-    public float tiempoTranscurrido;
-    public GameObject proyectil;
+    public float tiempoVida = 3f;
+    public int daño = 10;
+    public bool desactivarAlImpactar = true;
+
+    private float tiempoActivacion;
+
+    void OnEnable()
+    {
+        tiempoActivacion = Time.time; // Guarda el momento en que se activó
+    }
 
     void Update()
     {
-        tiempoTranscurrido += Time.deltaTime;
-        if ( tiempoTranscurrido >= tiempoBala)
+        if (Time.time >= tiempoActivacion + tiempoVida)
         {
-            tiempoTranscurrido = 0f;
-            ProyectilPool.Instance.PushObj(proyectil);
+           DevolverAPool();
         }
+    }
+
+     void OnCollisionEnter(Collision collision)
+    {
         
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Debug.Log("Bala impactó enemigo");
+        }
+
+        if (desactivarAlImpactar)
+        {
+            DevolverAPool();
+        }
+    }
+
+    private void DevolverAPool()
+    {
+        ProyectilPool.Instance.PushObj(gameObject);
     }
 }

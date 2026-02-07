@@ -8,16 +8,25 @@ public class Player : MonoBehaviour
 {
     public Camera cameraPrincipal;
 
+    public Transform puntoDisparo;
+    public float fuerzaDisparo = 20f;
+    public float cadenciaDisparo = 0.2f;
+
     public float velocidadCaminar = 3.5f;
     public float velocidadCorrer = 6f;
     public float sensibilidadRotacion = 200f;
     public float vida;
+    public int vidaMaxima = 5;
 
     private NavMeshAgent agent;
     private Animator animator;
 
-    private float anguloVertCamara;
+
     private bool estaMuerto;
+    private float tiempoUltimoDisparo;
+    public int danio = 1;
+
+    private float anguloVertCamara;
 
     void Awake()
     {
@@ -27,6 +36,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        vida = vidaMaxima;
     }
 
     void Update()
@@ -35,6 +45,7 @@ public class Player : MonoBehaviour
         {
             Movimiento();
             Mirar();
+            Disparar();
         }
 
         ControlarAnimaciones();
@@ -80,11 +91,38 @@ public class Player : MonoBehaviour
 
 }
 
+private void Disparar()
+{
+   if (Input.GetButton("Fire1") && Time.time >= tiempoUltimoDisparo + cadenciaDisparo)
+        {
+            tiempoUltimoDisparo = Time.time;
+
+            GameObject bala = ProyectilPool.Instance.PopObj();
+            bala.transform.position = puntoDisparo.position;
+            bala.transform.rotation = puntoDisparo.rotation;
+
+            Rigidbody rb = bala.GetComponent<Rigidbody>();
+            rb.linearVelocity = puntoDisparo.forward * fuerzaDisparo;
+        }
+    
+}
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("BalaEnemiga"))
         {
-            Destroy(other.gameObject);
+        RecibirDanio(1);
+        }
+     
+    }
+
+    public void RecibirDanio(int danio)
+    {
+        vida -= danio;
+
+        if (vida == 0)
+        {
+            Morir();
         }
     }
 

@@ -38,23 +38,30 @@ public class ProyectilPool : MonoBehaviour
     {
         GameObject retornoProyectil = null;
 
-        if (pool.Count != 0)
+           if (pool.Count == 0)
         {
-            retornoProyectil.SetActive(true);
-            retornoProyectil = pool.Pop();
-            retornoProyectil.transform.position = Vector3.zero;
-            retornoProyectil.GetComponent<Rigidbody>().linearVelocity = Vector3.zero;
+            CrearNuevoProyectil();
         }
-        else
+
+        GameObject proyectil = pool.Pop();
+        proyectil.SetActive(true);
+        Rigidbody rb = proyectil.GetComponent<Rigidbody>();
+        if (rb != null)
         {
-            retornoProyectil.SetActive(false);
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
-        return retornoProyectil;
+
+        return proyectil;
     }
 
     public void PushObj(GameObject obj)
     {
         obj.SetActive(false);
+        
+        obj.transform.position = transform.position;
+        obj.transform.rotation = Quaternion.identity;
+        
         pool.Push(obj);
     }
 
