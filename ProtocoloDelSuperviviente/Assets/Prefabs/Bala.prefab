@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 1195064050227917140}
   - component: {fileID: 7753201912001188373}
   - component: {fileID: 3557365655648369753}
-  - component: {fileID: 1869730411199318705}
   - component: {fileID: 1732008777403159476}
+  - component: {fileID: 737743683210398757}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Untagged
@@ -113,20 +113,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 0.5
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1869730411199318705
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 322044575144496909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: deefbd23efc996c4f8abcb4468d8a261, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::BalaEnemiga
-  velocidad: 20
-  danio: 10
 --- !u!54 &1732008777403159476
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -154,3 +140,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &737743683210398757
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 322044575144496909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3da47c36bdf1fea41953d6c07fc63613, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::BalasPop
+  tiempoVida: 3
+  "da\xF1o": 10
+  desactivarAlImpactar: 1

@@ -4,13 +4,12 @@ using System.Collections.Generic;
 public class PoolBalas : MonoBehaviour
 {
     public static PoolBalas Instance;
-
-
     public GameObject prefabBala;
+    public Transform puntoDisparo;
     public int cantidadInicial = 10;
     public float tiempoReposicion = 3f;
 
-    private Stack<BalaEnemiga> pool = new Stack <BalaEnemiga>();
+    private Stack<GameObject> pool = new Stack <GameObject>();
 
     void Awake()
     {
@@ -30,23 +29,28 @@ public class PoolBalas : MonoBehaviour
 
     }
 
-    void CrearBala()
+    public void CrearBala()
     {
-        GameObject obj = Instantiate(prefabBala, transform);
-        BalaEnemiga bala = obj.GetComponent<BalaEnemiga>();
-        obj.SetActive(false);
+        GameObject bala = Instantiate(prefabBala, puntoDisparo.position, Quaternion.identity);
+        bala.SetActive(false);
         pool.Push(bala);
     }
 
-    public BalaEnemiga Pop()
+    public GameObject PopObj()
     {
         if (pool.Count == 0)
         {
             CrearBala();
         }
 
-        BalaEnemiga bala  = pool.Pop();
-        bala.gameObject.SetActive(true);
+        GameObject bala  = pool.Pop();
+        bala.SetActive(true);
+        Rigidbody rb = bala.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
         return bala;
     }
 
@@ -54,9 +58,11 @@ public class PoolBalas : MonoBehaviour
 
 
 
-    public void Push(BalaEnemiga bala)
+    public void PushObj(GameObject balaEnemiga)
         {
-            bala.gameObject.SetActive(false);
-            pool.Push(bala);
+            balaEnemiga.gameObject.SetActive(false);
+        balaEnemiga.transform.position = transform.position;
+        balaEnemiga.transform.rotation = Quaternion.identity;
+        pool.Push(balaEnemiga);
         }
 }

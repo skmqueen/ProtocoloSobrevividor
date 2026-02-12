@@ -27862,6 +27862,8 @@ MonoBehaviour:
   - {fileID: 1214374801}
   jugador: {fileID: 345744684}
   agent: {fileID: 800516015}
+  balaEnemiga: {fileID: 322044575144496909, guid: 39476863011eaa34691cf53bb59fe133, type: 3}
+  puntoDisparo: {fileID: 1635497770}
   rangoVision: 15
   rangoAtaque: 2
   capaJugador:
@@ -42755,6 +42757,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PoolBalas
   prefabBala: {fileID: 322044575144496909, guid: 39476863011eaa34691cf53bb59fe133, type: 3}
+  puntoDisparo: {fileID: 1635497770}
   cantidadInicial: 10
   tiempoReposicion: 3
 --- !u!1001 &1296370069
@@ -51998,6 +52001,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7998025327058000213, guid: 64bbb59182b63224fa8fb0a3951a64ab, type: 3}
   m_PrefabInstance: {fileID: 1634995395}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1635497770 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1265907187464942538, guid: 40964f631a27e364e92e53e50f36ef48, type: 3}
+  m_PrefabInstance: {fileID: 650055607}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1642796709
 PrefabInstance:

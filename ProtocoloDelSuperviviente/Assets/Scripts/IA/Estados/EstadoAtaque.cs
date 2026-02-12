@@ -5,10 +5,14 @@ public class EstadoAtaque : IEstado
     private IAEnemigo enemigo;
     private float tiempoUltimoAtaque;
     private float cooldownAtaque = 1.5f;
+    public Transform puntoDisparo;
+    public GameObject balaEnemiga;
     
-    public EstadoAtaque(IAEnemigo enemigo)
+    public EstadoAtaque(IAEnemigo enemigo, Transform puntoDisparo, GameObject balaEnemiga)
     {
         this.enemigo = enemigo;
+        this.puntoDisparo = puntoDisparo;
+        this.balaEnemiga = balaEnemiga;
     }
     
     public void Entrar()
@@ -42,8 +46,9 @@ public class EstadoAtaque : IEstado
     
     private void Atacar()
     {
+        PoolBalas.Instance.PopObj();
         Debug.Log("VEN ACÁ WACHO");
-        
+
     }
     
     public void Salir()

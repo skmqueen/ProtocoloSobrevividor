@@ -36,13 +36,12 @@ public class BalaEnemiga : MonoBehaviour
     {
  
         if (other.CompareTag("Player"))
-        {
-            
-            PoolBalas.Instance.Pop();
+        {  
+            PoolBalas.Instance.PopObj();
         }
         else if (!other.CompareTag("Enemy"))
         {
-            PoolBalas.Instance.Pop();
+            PoolBalas.Instance.PopObj();
         }
     }
 }
