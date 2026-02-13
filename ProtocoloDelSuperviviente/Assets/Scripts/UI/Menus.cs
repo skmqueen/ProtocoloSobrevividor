@@ -14,9 +14,9 @@ public class Menus : MonoBehaviour
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Jugar()
+    public void Jugar(string Juego)
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadScene(Juego);
     }
     public void Salir()
     {

@@ -57,12 +57,18 @@ public class Player : MonoBehaviour
         float v = Input.GetAxis("Vertical");
 
         Vector3 direccion = new Vector3(h, 0, v);
-        float magnitud = Mathf.Clamp01(direccion.magnitude);
         direccion.Normalize();
 
-        bool corriendo = Input.GetButton("Run");
+       bool corriendo = Input.GetButton("Run");
 
-        agent.speed = corriendo ? velocidadCorrer : velocidadCaminar;
+      if(corriendo)
+        {
+            agent.speed = velocidadCorrer;
+        }
+      else
+        {
+            agent.speed = velocidadCaminar;
+        }
 
         Vector3 movimiento = transform.TransformDirection(direccion);
         agent.Move(movimiento * agent.speed * Time.deltaTime);

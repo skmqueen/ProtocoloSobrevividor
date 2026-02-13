@@ -22643,6 +22643,14 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1265907187464942538, guid: 40964f631a27e364e92e53e50f36ef48, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.1091
+      objectReference: {fileID: 0}
+    - target: {fileID: 1265907187464942538, guid: 40964f631a27e364e92e53e50f36ef48, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.706
+      objectReference: {fileID: 0}
     - target: {fileID: 1533255867610818618, guid: 40964f631a27e364e92e53e50f36ef48, type: 3}
       propertyPath: m_Name
       value: Ghost
@@ -22665,7 +22673,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2165361406688998016, guid: 40964f631a27e364e92e53e50f36ef48, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.94249
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 2165361406688998016, guid: 40964f631a27e364e92e53e50f36ef48, type: 3}
       propertyPath: m_LocalPosition.z
