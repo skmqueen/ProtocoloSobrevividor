@@ -12097,11 +12097,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2917838752646922675, guid: ad6fc192e8372044d8a077e2fccbbddf, type: 3}
   m_PrefabInstance: {fileID: 251439327}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &345744684 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4481440343099831603, guid: ad6fc192e8372044d8a077e2fccbbddf, type: 3}
-  m_PrefabInstance: {fileID: 251439327}
-  m_PrefabAsset: {fileID: 0}
 --- !u!65 &345744686
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -27873,10 +27868,10 @@ MonoBehaviour:
   puntosPatrulla:
   - {fileID: 1976308368}
   - {fileID: 1214374801}
-  jugador: {fileID: 345744684}
+  jugador: {fileID: 2125915449}
   agent: {fileID: 800516015}
-  balaEnemiga: {fileID: 0}
-  puntoDisparo: {fileID: 0}
+  balaEnemiga: {fileID: 322044575144496909, guid: 39476863011eaa34691cf53bb59fe133, type: 3}
+  puntoDisparo: {fileID: 798839427}
   rangoVision: 15
   rangoAtaque: 2
   capaJugador:
@@ -42704,6 +42699,8 @@ GameObject:
   - component: {fileID: 1293451499}
   - component: {fileID: 1293451498}
   - component: {fileID: 1293451501}
+  - component: {fileID: 1293451502}
+  - component: {fileID: 1293451503}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -42773,6 +42770,33 @@ MonoBehaviour:
   puntoDisparo: {fileID: 798839427}
   cantidadInicial: 10
   tiempoReposicion: 3
+--- !u!114 &1293451502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293451497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62d4a3a6dbe40747a1ba3cea4b0b13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menus
+--- !u!114 &1293451503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1293451497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ae9ef84b715d84aaa09efbe3b697e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemigos
+  prefabEnemigo: {fileID: 0}
+  cantidadEnemigos: 5
+  puntosSpawn: []
 --- !u!1001 &1296370069
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -9,6 +9,7 @@ public class IAEnemigo : MonoBehaviour
     public NavMeshAgent agent;
     public GameObject balaEnemiga;
     public Transform puntoDisparo;
+    private Player player;
     
     
     public float rangoVision = 15f;
@@ -28,7 +29,7 @@ public class IAEnemigo : MonoBehaviour
       
         estadoPatrulla = new EstadoPatrulla(this);
         estadoPersecucion = new EstadoPersecucion(this);
-        estadoAtaque = new EstadoAtaque(this, puntoDisparo, balaEnemiga);
+        estadoAtaque = new EstadoAtaque(this, puntoDisparo, balaEnemiga, agent);
         
         CambiarEstado(estadoPatrulla);
     }

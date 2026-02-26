@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ControladorVidas
   - Enemy
+  - BalaEnemiga
   layers:
   - Default
   - TransparentFX

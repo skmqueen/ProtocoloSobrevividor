@@ -1152,7 +1152,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 57251c0b8361b514fa07daddbdf7aeed, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b97a30c9889f64c43bbd53f3e4098dba, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1363,7 +1363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Victoria
+  m_text: GameOver
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: eca790aae03c324409cc75d0305706eb, type: 2}
   m_sharedMaterial: {fileID: -637408914203390443, guid: eca790aae03c324409cc75d0305706eb, type: 2}

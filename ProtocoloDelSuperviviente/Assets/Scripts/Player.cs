@@ -129,6 +129,7 @@ private void Disparar()
         if (vida == 0)
         {
             Morir();
+            //Menus.Instance.GameOver(GameOver);
         }
     }
 
