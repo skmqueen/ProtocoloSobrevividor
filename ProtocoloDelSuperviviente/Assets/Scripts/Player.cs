@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public float velocidadCorrer = 6f;
     public float sensibilidadRotacion = 200f;
     public float vida;
-    public int vidaMaxima = 5;
+    public float vidaPlayer = 5;
 
     private NavMeshAgent agent;
     private Animator animator;
@@ -36,7 +36,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
-        vida = vidaMaxima;
+        vida = vidaPlayer;
     }
 
     void Update()
@@ -126,7 +126,11 @@ private void Disparar()
     {
         vida -= danio;
 
-        if (vida == 0)
+        if (BarraVida.Instance != null)
+        BarraVida.Instance.Danio();
+
+
+        if (vida <= 0)
         {
             Morir();
             //Menus.Instance.GameOver(GameOver);

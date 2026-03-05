@@ -3,20 +3,30 @@ using UnityEngine.UI;
 
 public class BarraVida : MonoBehaviour
 {
+    public static BarraVida Instance;
     public Image barraVida;
     private Player player;
-    private float vidaPlayer;
+    public float vidaPlayer;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    private void Awake()
+    {
+        if (Instance == null)
+            Instance = this;
+        else
+        {
+            Destroy(gameObject);        }
+    }
+
     void Start()
     {
         player = GameObject.Find("Player").GetComponent<Player>();
-        vidaPlayer = player.vida;
+        vidaPlayer = player.vidaPlayer;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        barraVida.fillAmount = player.vida / vidaPlayer;  
-    }
+    public void Danio()
+{
+   
+    barraVida.fillAmount = player.vida / vidaPlayer;
 }
+
+  }
