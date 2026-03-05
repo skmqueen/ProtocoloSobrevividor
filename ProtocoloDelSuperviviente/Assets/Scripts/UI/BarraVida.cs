@@ -15,18 +15,20 @@ public class BarraVida : MonoBehaviour
         else
         {
             Destroy(gameObject);        }
+
+        player = GameObject.Find("Player").GetComponent<Player>();
     }
 
     void Start()
     {
-        player = GameObject.Find("Player").GetComponent<Player>();
+       
         vidaPlayer = player.vidaPlayer;
     }
 
     public void Danio()
 {
    
-    barraVida.fillAmount = player.vida / vidaPlayer;
+    barraVida.fillAmount = (float)((float)player.vida / (float)vidaPlayer);
 }
 
   }

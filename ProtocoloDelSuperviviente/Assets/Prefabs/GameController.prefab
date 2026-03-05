@@ -1,0 +1,112 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &5632852915081782145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5320732998844150496}
+  - component: {fileID: 5023885754544634724}
+  - component: {fileID: 3364873017952027626}
+  - component: {fileID: 1406996224027701907}
+  - component: {fileID: 5188816428127856501}
+  - component: {fileID: 7302941693041544404}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5320732998844150496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632852915081782145}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -118.30022, y: 1.6478, z: -35.71098}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5023885754544634724
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632852915081782145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 974a5c9c07b891e4297d5af8d76947b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ArmasController
+  pitorro: {fileID: 0}
+  disparoVelocidad: 0.1
+  proyectil: {fileID: 6511047287820163028, guid: c9d69e311d214d34fa59cb9c4e7a9c28, type: 3}
+  maxBalas: 8
+  tiempoRecarga: 2
+--- !u!114 &3364873017952027626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632852915081782145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f079a0937d8bb9e45ad2921b58ce9e5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ProyectilPool
+  prefabProyectil: {fileID: 6511047287820163028, guid: c9d69e311d214d34fa59cb9c4e7a9c28, type: 3}
+  cantidadInicial: 15
+--- !u!114 &1406996224027701907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632852915081782145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33b0a900a50082346834a8b794e912fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PoolBalas
+  prefabBala: {fileID: 322044575144496909, guid: 39476863011eaa34691cf53bb59fe133, type: 3}
+  puntoDisparo: {fileID: 0}
+  cantidadInicial: 10
+  tiempoReposicion: 3
+--- !u!114 &5188816428127856501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632852915081782145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62d4a3a6dbe40747a1ba3cea4b0b13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menus
+--- !u!114 &7302941693041544404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5632852915081782145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 36ae9ef84b715d84aaa09efbe3b697e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SpawnEnemigos
+  prefabEnemigo: {fileID: 0}
+  cantidadEnemigos: 5
+  puntosSpawn: []
