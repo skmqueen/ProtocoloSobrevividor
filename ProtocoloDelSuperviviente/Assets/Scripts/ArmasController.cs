@@ -1,5 +1,7 @@
 using UnityEngine;
 using System.Collections;
+using TMPro;
+
 
 public class ArmasController : MonoBehaviour
 {
@@ -15,6 +17,7 @@ public class ArmasController : MonoBehaviour
     private float ultimoDisparo = Mathf.NegativeInfinity;
     private float tiempoPool = 2f;
     private Animator animator;
+    public TMPro.TextMeshProUGUI textoBalas;
 
     private void Awake()
     {
@@ -24,10 +27,13 @@ public class ArmasController : MonoBehaviour
 
     private void Start()
     {
+        int balasActuales = maxBalas;
+        textoBalas.text = balasActuales.ToString();
     }
 
     private void Update()
     {
+
         bool disparando = Input.GetButton("Fire1");
         
         if (animator != null)
@@ -65,6 +71,20 @@ public class ArmasController : MonoBehaviour
         proyectil.transform.position = pitorro.position;
         balasActuales--;
         ultimoDisparo = Time.deltaTime;
+
+        if (balasActuales > 0)
+        {
+            textoBalas.text = balasActuales.ToString();
+        }
+        else
+        {
+            textoBalas.text = "Recarga";
+        }
+
+        if (balasActuales <= 0)
+        {
+            textoBalas.text = "Recarga";
+        }
     }
 
     IEnumerator Recarga()
@@ -72,6 +92,7 @@ public class ArmasController : MonoBehaviour
         recargando = true;
         yield return new WaitForSeconds(tiempoRecarga);
         balasActuales = maxBalas;
+        textoBalas.text = balasActuales.ToString();
         recargando = false;
     }
 }

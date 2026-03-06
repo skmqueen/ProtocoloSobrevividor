@@ -5,11 +5,14 @@ public class IAEnemigo : MonoBehaviour
 {
    
     public Transform[] puntosPatrulla;
+    public GameObject enemigo;
     public Transform jugador;
     public NavMeshAgent agent;
     public GameObject balaEnemiga;
     public Transform puntoDisparo;
     private Player player;
+    public int vida = 10;
+    public int puntos = 50;
     
     
     public float rangoVision = 15f;
@@ -80,7 +83,30 @@ public class IAEnemigo : MonoBehaviour
             CambiarEstado(estadoPersecucion);
         }
     }
-    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Proyectil"))
+        {
+            RecibirDanio(2);
+        }
+
+    }
+
+    public void RecibirDanio(int danio)
+    {
+        vida -= danio;
+        Score.Instance.SumarPuntos(puntos);
+        if ( vida == 0)
+        {
+            Morir();
+        }
+    }
+
+    public void Morir()
+    {
+        PoolEnemigo.Instance.PushObj(enemigo);
+    }
+
     public IEstado EstadoPatrulla => estadoPatrulla;
     public IEstado EstadoPersecucion => estadoPersecucion;
     public IEstado EstadoAtaque => estadoAtaque;
