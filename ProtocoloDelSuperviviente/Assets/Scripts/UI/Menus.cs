@@ -36,6 +36,10 @@ public class Menus : MonoBehaviour
 
     public void Victoria(string Victoria)
     {
+        if (Score.Instance != null)
+        {
+            Score.Instance.GuardarPuntosFinales();
+        }
         SceneManager.LoadScene(Victoria);
     }
 }

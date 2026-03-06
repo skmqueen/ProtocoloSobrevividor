@@ -43971,12 +43971,12 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1359022511}
-  - component: {fileID: 1359022517}
   - component: {fileID: 1359022516}
   - component: {fileID: 1359022515}
   - component: {fileID: 1359022514}
   - component: {fileID: 1359022513}
   - component: {fileID: 1359022518}
+  - component: {fileID: 1359022519}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -44059,18 +44059,6 @@ MonoBehaviour:
   tiempoVida: 3
   "da\xF1o": 10
   desactivarAlImpactar: 1
---- !u!114 &1359022517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1359022510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b62d4a3a6dbe40747a1ba3cea4b0b13e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Menus
 --- !u!114 &1359022518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44094,6 +44082,18 @@ MonoBehaviour:
   - {fileID: 1599009730}
   - {fileID: 2065283540}
   prefabEnemigo: {fileID: 1353248077}
+--- !u!114 &1359022519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1359022510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b62d4a3a6dbe40747a1ba3cea4b0b13e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Menus
 --- !u!1 &1359598886
 GameObject:
   m_ObjectHideFlags: 0

@@ -27,7 +27,7 @@ public class ArmasController : MonoBehaviour
     private void Start()
     {
         int balasActuales = maxBalas;
-        textoBalas.text = balasActuales.ToString();
+        //textoBalas.text = balasActuales.ToString();
     }
 
     private void Update()
@@ -73,7 +73,7 @@ public class ArmasController : MonoBehaviour
 
         if (balasActuales > 0)
         {
-            textoBalas.text = balasActuales.ToString();
+           // textoBalas.text = balasActuales.ToString();
         }
         else
         {
