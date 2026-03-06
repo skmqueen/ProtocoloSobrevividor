@@ -36,7 +36,6 @@ public class ProyectilPool : MonoBehaviour
 
     public GameObject PopObj()
     {
-        GameObject retornoProyectil = null;
 
            if (pool.Count == 0)
         {

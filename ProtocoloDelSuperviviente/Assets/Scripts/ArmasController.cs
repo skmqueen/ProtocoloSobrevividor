@@ -15,7 +15,6 @@ public class ArmasController : MonoBehaviour
     public float tiempoRecarga = 2f;
     private bool recargando = false;
     private float ultimoDisparo = Mathf.NegativeInfinity;
-    private float tiempoPool = 2f;
     private Animator animator;
     public TMPro.TextMeshProUGUI textoBalas;
 
