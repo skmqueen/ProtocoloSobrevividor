@@ -45,7 +45,6 @@ public class Player : MonoBehaviour
         {
             Movimiento();
             Mirar();
-            Disparar();
         }
 
         ControlarAnimaciones();
@@ -97,21 +96,6 @@ public class Player : MonoBehaviour
 
 }
 
-private void Disparar()
-{
-   if (Input.GetButton("Fire1") && Time.time >= tiempoUltimoDisparo + cadenciaDisparo)
-        {
-            tiempoUltimoDisparo = Time.time;
-
-            GameObject bala = ProyectilPool.Instance.PopObj();
-            bala.transform.position = puntoDisparo.position;
-            bala.transform.rotation = puntoDisparo.rotation;
-
-            Rigidbody rb = bala.GetComponent<Rigidbody>();
-            rb.linearVelocity = puntoDisparo.forward * fuerzaDisparo;
-        }
-    
-}
 
     private void OnTriggerEnter(Collider other)
     {

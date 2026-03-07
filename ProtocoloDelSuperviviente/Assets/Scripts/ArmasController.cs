@@ -2,96 +2,88 @@ using UnityEngine;
 using System.Collections;
 using TMPro;
 
-
 public class ArmasController : MonoBehaviour
 {
-
+    [Header("Disparo")]
     public Transform pitorro;
-    public float disparoVelocidad = 0.1f;
+    public float disparoVelocidad = 20f;
+    public float cadenciaDisparo = 0.2f;
 
-    public GameObject proyectil;
+    [Header("Balas")]
     public int maxBalas = 8;
     private int balasActuales;
     public float tiempoRecarga = 2f;
     private bool recargando = false;
-    private float ultimoDisparo = Mathf.NegativeInfinity;
-    private Animator animator;
-    public TMPro.TextMeshProUGUI textoBalas;
+
+    [Header("UI")]
+    public TextMeshProUGUI textoBalas;
+
+    private float tiempoUltimoDisparo;
 
     private void Awake()
     {
         balasActuales = maxBalas;
-        animator = GetComponentInParent<Animator>();
     }
 
     private void Start()
     {
-        int balasActuales = maxBalas;
-        //textoBalas.text = balasActuales.ToString();
+        ActualizarTextoBalas();
     }
 
     private void Update()
     {
-
-        bool disparando = Input.GetButton("Fire1");
-        
-        if (animator != null)
-        {
-            animator.SetBool("IsShooting", disparando);
-        }
-
-        if (Input.GetButtonDown("Fire1"))
-        {
-            IntentoDisparo();
-        }
-        
+        // Recargar manualmente
         if (Input.GetKeyDown(KeyCode.R) && balasActuales < maxBalas && !recargando)
         {
             StartCoroutine(Recarga());
         }
-    }
 
-    private void IntentoDisparo()
-    {
-        if (recargando)
+        // Disparar
+        if (Input.GetButton("Fire1") && Time.time >= tiempoUltimoDisparo + cadenciaDisparo)
         {
- 
-        }
-        else
-        {
-            Disparo();
+            IntentarDisparar();
         }
     }
 
-    private void Disparo()
+    private void IntentarDisparar()
     {
+        if (recargando) return;
+        if (balasActuales <= 0) return;
 
-        ProyectilPool.Instance.PopObj();
-        proyectil.transform.position = pitorro.position;
+        tiempoUltimoDisparo = Time.time;
+
+        // Reproducir sonido
+        AudioManager.instance.ReproducirDisparo();
+
+        // Sacar proyectil del pool
+        GameObject bala = ProyectilPool.Instance.PopObj();
+        bala.transform.position = pitorro.position;
+        bala.transform.rotation = pitorro.rotation;
+
+        // Aplicar fuerza
+        Rigidbody rb = bala.GetComponent<Rigidbody>();
+        rb.linearVelocity = pitorro.forward * disparoVelocidad;
+
+        // Restar bala
         balasActuales--;
-        ultimoDisparo = Time.deltaTime;
-
-        if (balasActuales > 0)
-        {
-           // textoBalas.text = balasActuales.ToString();
-        }
-        else
-        {
-            textoBalas.text = "Recarga";
-        }
-
-        if (balasActuales <= 0)
-        {
-            textoBalas.text = "Recarga";
-        }
+        ActualizarTextoBalas();
     }
 
     IEnumerator Recarga()
     {
         recargando = true;
+
         yield return new WaitForSeconds(tiempoRecarga);
+
         balasActuales = maxBalas;
-        textoBalas.text = balasActuales.ToString();
+        ActualizarTextoBalas();
+
         recargando = false;
+    }
+
+    private void ActualizarTextoBalas()
+    {
+        if (textoBalas != null)
+            textoBalas.text = balasActuales.ToString();
     }
 }
