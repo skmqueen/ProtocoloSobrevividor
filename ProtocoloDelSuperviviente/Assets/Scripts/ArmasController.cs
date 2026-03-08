@@ -7,7 +7,7 @@ public class ArmasController : MonoBehaviour
     [Header("Disparo")]
     public Transform pitorro;
     public float disparoVelocidad = 20f;
-    public float cadenciaDisparo = 0.2f;
+    public float cadenciaDisparo = 20f;
 
     [Header("Balas")]
     public int maxBalas = 8;
@@ -64,7 +64,7 @@ public class ArmasController : MonoBehaviour
         Rigidbody rb = bala.GetComponent<Rigidbody>();
         rb.linearVelocity = pitorro.forward * disparoVelocidad;
 
-        // Restar bala
+        // Una bala menos jejejejejejejejejeje
         balasActuales--;
         ActualizarTextoBalas();
     }

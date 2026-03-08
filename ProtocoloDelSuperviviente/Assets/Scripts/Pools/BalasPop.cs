@@ -4,7 +4,7 @@ public class BalasPop : MonoBehaviour
 {
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public float tiempoVida = 3f;
-    public int daño = 10;
+    public int danio = 10;
     public bool desactivarAlImpactar = true;
 
     private float tiempoActivacion;
@@ -27,7 +27,7 @@ public class BalasPop : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Bala impactó player");
+            Debug.Log("TOMA TOMA");
         }
 
         if (desactivarAlImpactar)

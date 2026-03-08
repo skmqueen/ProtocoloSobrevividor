@@ -37,18 +37,8 @@ public class ProyectilPool : MonoBehaviour
             CrearNuevoProyectil();
 
         GameObject proyectil = pool.Pop();
-
-        // Reset transform
-        proyectil.transform.SetPositionAndRotation(Vector3.zero, Quaternion.identity);
-
         // Reset física
         Rigidbody rb = proyectil.GetComponent<Rigidbody>();
-        if (rb != null)
-        {
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-        }
-
 
         proyectil.SetActive(true);
         return proyectil;

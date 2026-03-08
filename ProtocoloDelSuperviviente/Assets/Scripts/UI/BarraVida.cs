@@ -27,6 +27,7 @@ public class BarraVida : MonoBehaviour
 
     public void Danio()
 {
+    //Forzamos la propiedad float
    
     barraVida.fillAmount = (float)((float)player.vida / (float)vidaPlayer);
 }

@@ -14,6 +14,8 @@ public class MostrarTiempoFinal : MonoBehaviour
     {
         if (textoTiempoFinal != null)
         {
+
+            //esta es una funcion matemática para añadir minutos y segundos
             int minutos = Mathf.FloorToInt(Timer.tiempoTranscurrido / 60f);
             int segundos = Mathf.FloorToInt(Timer.tiempoTranscurrido % 60f);
 
