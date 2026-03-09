@@ -47,9 +47,8 @@ public class ArmasController : MonoBehaviour
 
     private void IntentarDisparar()
     {
-        if (recargando) return;
-        if (balasActuales <= 0) return;
-
+        if (balasActuales >= 0)
+        {
         tiempoUltimoDisparo = Time.time;
 
         // Reproducir sonido
@@ -67,6 +66,17 @@ public class ArmasController : MonoBehaviour
         // Una bala menos jejejejejejejejejeje
         balasActuales--;
         ActualizarTextoBalas();
+        }
+
+        if (balasActuales <= 0)
+        {
+            textoBalas.text = "Recarga";
+        }
+
+        if (recargando)
+        {
+            textoBalas.text = "Recargando";
+        }
     }
 
     IEnumerator Recarga()
