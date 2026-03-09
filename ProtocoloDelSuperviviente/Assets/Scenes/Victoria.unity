@@ -1590,6 +1590,8 @@ GameObject:
   - component: {fileID: 1605780093}
   - component: {fileID: 1605780096}
   - component: {fileID: 1605780095}
+  - component: {fileID: 1605780098}
+  - component: {fileID: 1605780097}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -1650,6 +1652,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MostrarPuntosFinales
   textoPuntosFinal: {fileID: 1545541479}
+--- !u!114 &1605780097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605780092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffa95de10e1e5b94aaaa4a4a3da6e61c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::VictoriaUI
+  anim: {fileID: 1605780098}
+  titulo: {fileID: 324251663}
+  puntos: {fileID: 54788707}
+  tiempo: {fileID: 2090099231}
+  botonJugar: {fileID: 539802238}
+  botonSalir: {fileID: 479991267}
+--- !u!114 &1605780098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1605780092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9795e8783daeb49b974e161b267c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacionesUI
+  duracionEntrada: 0.35
+  duracionClick: 0.08
+  duracionTitulo: 0.5
+  easeEntrada: 27
+  easeClick: 16
+  easeTitulo: 30
 --- !u!1 &1924130788
 GameObject:
   m_ObjectHideFlags: 0

@@ -129,6 +129,8 @@ GameObject:
   m_Component:
   - component: {fileID: 118876624}
   - component: {fileID: 118876623}
+  - component: {fileID: 118876626}
+  - component: {fileID: 118876625}
   m_Layer: 0
   m_Name: GameController
   m_TagString: Untagged
@@ -163,6 +165,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &118876625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118876622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c9795e8783daeb49b974e161b267c24, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::AnimacionesUI
+  duracionEntrada: 0.35
+  duracionClick: 0.08
+  duracionTitulo: 0.5
+  easeEntrada: 27
+  easeClick: 16
+  easeTitulo: 30
+--- !u!114 &118876626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 118876622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 667a73251d8c6584590732b2c1693ea8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InicioUI
+  anim: {fileID: 118876625}
+  titulo: {fileID: 1745935924}
+  botonJugar: {fileID: 1000213736}
+  botonSalir: {fileID: 539790803}
 --- !u!1 &203711560
 GameObject:
   m_ObjectHideFlags: 0
