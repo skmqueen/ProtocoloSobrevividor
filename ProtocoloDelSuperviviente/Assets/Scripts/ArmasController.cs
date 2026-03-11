@@ -10,24 +10,29 @@ public class ArmasController : MonoBehaviour
     public float cadenciaDisparo = 0.2f;
 
     [Header("Balas")]
-    public int maxBalas = 8;
-    private int balasActuales;
+    public float maxBalas = 8f;
+    public float balasActuales;
     public float tiempoRecarga = 2f;
     private bool recargando = false;
 
     [Header("UI")]
     public TextMeshProUGUI textoBalas;
+    private float tiempoEnergia = 4f;
 
     private float tiempoUltimoDisparo;
+
+    private Energia energia;
 
     private void Awake()
     {
         balasActuales = maxBalas;
+        energia = GameObject.Find("UI").GetComponent<Energia>();
     }
 
     private void Start()
     {
         ActualizarTextoBalas();
+        balasActuales = maxBalas;
     }
 
     private void Update()
@@ -47,7 +52,9 @@ public class ArmasController : MonoBehaviour
 
     private void IntentarDisparar()
     {
-        if (!recargando && balasActuales > 0)
+        if (energia.barraEnergia.fillAmount == 1)
+        {
+        if (!recargando && balasActuales > 0 )
         {
         tiempoUltimoDisparo = Time.time;
 
@@ -59,6 +66,8 @@ public class ArmasController : MonoBehaviour
         bala.transform.position = pitorro.position;
         bala.transform.rotation = pitorro.rotation;
 
+        Energia.Instance.energiaFuera();
+
         // Aplicar fuerza
         Rigidbody rb = bala.GetComponent<Rigidbody>();
         rb.linearVelocity = pitorro.forward * disparoVelocidad;
@@ -68,14 +77,31 @@ public class ArmasController : MonoBehaviour
         ActualizarTextoBalas();
         }
 
+        if(energia.barraEnergia.fillAmount <= 0)
+        {
+            tiempoEnergia -= Time.deltaTime;
+
+            if (tiempoEnergia <= 0)
+            {
+            energia.balasEnergia = 0f;
+            energia.barraEnergia.fillAmount = 1;
+            tiempoEnergia = 4f;
+            }
+
+
+
+        }
+
         if (balasActuales <= 0)
         {
             textoBalas.text = "Recarga";
+            energia.balasEnergia = 4f;
         }
 
         if (recargando)
         {
             textoBalas.text = "Recargando";
+        }
         }
     }
 

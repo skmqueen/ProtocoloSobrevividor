@@ -16,7 +16,7 @@ public class Player : MonoBehaviour
     public float velocidadCorrer = 6f;
     public float sensibilidadRotacion = 200f;
     public float vida;
-    public float vidaPlayer = 5;
+    public float vidaPlayer = 5f;
 
     private NavMeshAgent agent;
     private Animator animator;
