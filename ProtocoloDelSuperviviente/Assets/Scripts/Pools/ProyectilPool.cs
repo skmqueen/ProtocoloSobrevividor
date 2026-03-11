@@ -39,6 +39,11 @@ public class ProyectilPool : MonoBehaviour
         GameObject proyectil = pool.Pop();
         // Reset física
         Rigidbody rb = proyectil.GetComponent<Rigidbody>();
+        if (rb != null)
+        {
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+        }
 
         proyectil.SetActive(true);
         return proyectil;

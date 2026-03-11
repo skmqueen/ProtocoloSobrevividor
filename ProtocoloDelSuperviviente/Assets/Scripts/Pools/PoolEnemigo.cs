@@ -16,7 +16,7 @@ public class PoolEnemigo : MonoBehaviour
         else
             Destroy(gameObject);
 
-        for (int i = 0; i > cantidadEnemigos; i++)
+        for (int i = 0; i < cantidadEnemigos; i++)
         {
             CrearEnemigo();
         }

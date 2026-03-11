@@ -6,8 +6,8 @@ public class ArmasController : MonoBehaviour
 {
     [Header("Disparo")]
     public Transform pitorro;
-    public float disparoVelocidad = 20f;
-    public float cadenciaDisparo = 20f;
+    public float disparoVelocidad = 50f;
+    public float cadenciaDisparo = 0.2f;
 
     [Header("Balas")]
     public int maxBalas = 8;
@@ -39,7 +39,7 @@ public class ArmasController : MonoBehaviour
         }
 
         // Disparar
-        if (Input.GetButton("Fire1") && Time.time >= tiempoUltimoDisparo + cadenciaDisparo)
+        if (Input.GetButtonDown("Fire1") && Time.time >= tiempoUltimoDisparo + cadenciaDisparo)
         {
             IntentarDisparar();
         }
@@ -47,7 +47,7 @@ public class ArmasController : MonoBehaviour
 
     private void IntentarDisparar()
     {
-        if (balasActuales >= 0)
+        if (!recargando && balasActuales > 0)
         {
         tiempoUltimoDisparo = Time.time;
 

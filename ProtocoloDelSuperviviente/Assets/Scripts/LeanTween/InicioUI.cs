@@ -11,7 +11,6 @@ public class InicioUI : MonoBehaviour
     void Start()
     {
         anim.AnimarEntradaTitulo(titulo);
-
         anim.AnimarEntradaBoton(botonJugar);
         anim.AnimarEntradaBoton(botonSalir);
     }

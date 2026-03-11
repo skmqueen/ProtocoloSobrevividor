@@ -96,7 +96,7 @@ public class IAEnemigo : MonoBehaviour
     {
         vida -= danio;
         Score.Instance.SumarPuntos(puntos);
-        if ( vida == 0)
+        if ( vida <= 0)
         {
             Morir();
         }

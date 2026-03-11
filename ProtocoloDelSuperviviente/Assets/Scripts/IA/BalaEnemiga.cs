@@ -34,14 +34,13 @@ public class BalaEnemiga : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
- 
         if (other.CompareTag("Player"))
-        {  
-            PoolBalas.Instance.PopObj();
+        {
+            PoolBalas.Instance.PushObj(gameObject);
         }
         else if (!other.CompareTag("Enemy"))
         {
-            PoolBalas.Instance.PopObj();
+            PoolBalas.Instance.PushObj(gameObject);
         }
     }
 }

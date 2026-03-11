@@ -3,7 +3,7 @@ using UnityEngine;
 public class ProyectilPop : MonoBehaviour
 {
     public float tiempoVida = 3f;
-    public int daño = 10;
+    public int danio = 10;
     public bool desactivarAlImpactar = true;
 
     private float tiempoActivacion;
@@ -26,7 +26,7 @@ public class ProyectilPop : MonoBehaviour
         
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Debug.Log("Bala impactó enemigo");
+            Debug.Log("TOMA WACHO");
         }
 
         if (desactivarAlImpactar)
