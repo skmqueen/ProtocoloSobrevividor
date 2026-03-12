@@ -25,13 +25,25 @@ public class PoolEnemigo : MonoBehaviour
   
     void Start()
     {
-        
+        // Barajar puntosSpawn directamente (Fisher-Yates)
+        for (int i = puntosSpawn.Length - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            Transform temp = puntosSpawn[i];
+            puntosSpawn[i] = puntosSpawn[j];
+            puntosSpawn[j] = temp;
+        }
+
+        for (int i = 0; i < cantidadEnemigos && i < puntosSpawn.Length; i++)
+        {
+            GameObject enemigo = PopObj();
+            enemigo.transform.position = puntosSpawn[i].position;
+        }
     }
 
     public void CrearEnemigo()
     {
-        int posicionAleatoria = Random.Range(0, puntosSpawn.Length);
-        GameObject enemigo = Instantiate(prefabEnemigo, puntosSpawn[posicionAleatoria].position, Quaternion.identity);
+        GameObject enemigo = Instantiate(prefabEnemigo, transform.position, Quaternion.identity);
         enemigo.SetActive(false);
         pool.Push(enemigo);
 
